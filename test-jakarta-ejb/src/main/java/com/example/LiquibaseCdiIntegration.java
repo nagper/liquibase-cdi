@@ -2,6 +2,8 @@ package com.example;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.Resource;
+import jakarta.ejb.Singleton;
+import jakarta.ejb.Startup;
 import jakarta.enterprise.context.Dependent;
 import jakarta.enterprise.inject.Produces;
 import liquibase.integration.cdi.CDILiquibaseConfig;
@@ -14,13 +16,15 @@ import org.slf4j.LoggerFactory;
 import javax.sql.DataSource;
 import java.sql.SQLException;
 
+@Singleton
+@Startup
 @Dependent
 public class LiquibaseCdiIntegration {
 
     private static final Logger logger = LoggerFactory.getLogger(LiquibaseCdiIntegration.class);
 
-    @Resource(mappedName = "java:/iocc/mrs/jdbc/MRSDS")
-    protected DataSource ds;
+//    @Resource(mappedName = "java:/iocc/mrs/jdbc/MRSDS")
+//    protected DataSource ds;
 
     @PostConstruct
     public void init() {
@@ -47,7 +51,7 @@ public class LiquibaseCdiIntegration {
     @Produces
     @LiquibaseType
     public DataSource createDataSource() throws SQLException {
-        return ds;
+        return null;
     }
 
     @Produces

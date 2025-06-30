@@ -18,6 +18,11 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
+        <dependency>
+            <groupId>jakarta.enterprise</groupId>
+            <artifactId>jakarta.enterprise.cdi-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -26,16 +31,15 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-ear-plugin</artifactId>
                 <version>3.3.0</version>
-<!--                <configuration>-->
-<!--                    <applicationName>test-jakarta</applicationName>-->
-<!--                    <initializeInOrder>true</initializeInOrder>-->
-<!--                    <defaultLibBundleDir>lib</defaultLibBundleDir>-->
-<!--                    <archive>-->
-<!--                        <manifestEntries>-->
-<!--                            <Dependencies>deployment.service-common.jar</Dependencies>-->
-<!--                        </manifestEntries>-->
-<!--                    </archive>-->
-<!--                </configuration>-->
+                <configuration>
+                    <modules>
+                        <ejbModule>
+                            <groupId>org.example</groupId>
+                            <artifactId>test-jakarta-ejb</artifactId>
+                            <bundleFileName>test-ejb.jar</bundleFileName>
+                        </ejbModule>
+                    </modules>
+                </configuration>
             </plugin>
         </plugins>
     </build>

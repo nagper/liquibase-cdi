@@ -9,12 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <parent>
-        <groupId>com.lhsystems.iocc</groupId>
-        <artifactId>iocc-bom</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
-
     <modules>
         <module>test-jakarta-ejb</module>
         <module>test-jakarta-ear</module>
@@ -24,16 +18,13 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jakartaee.version>10.0.0</jakartaee.version>
-        <cdi.version>4.0.1</cdi.version>
-        <liquibase.version>4.24.0</liquibase.version>
-        <liquibase.cdi.version>4.29.2</liquibase.cdi.version>
     </properties>
 
     <repositories>
         <repository>
-            <id>Cloud IOCC Group</id>
-            <url>https://nexus.devspace-dev.lhsystems.int/repository/iocccoco-iocc-group/</url>
+            <id>RH</id>
+            <name>Red Hat</name>
+            <url>https://maven.repository.redhat.com/ga/</url>
         </repository>
     </repositories>
 
@@ -49,7 +40,4 @@
         </dependencies>
     </dependencyManagement>
 
-    <dependencies>
-
-    </dependencies>
 </project>
