@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.example</groupId>
+        <artifactId>test-jakarta</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>test-jakarta-ear</artifactId>
+    <packaging>ear</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>test-jakarta-ejb</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>3.3.0</version>
+<!--                <configuration>-->
+<!--                    <applicationName>test-jakarta</applicationName>-->
+<!--                    <initializeInOrder>true</initializeInOrder>-->
+<!--                    <defaultLibBundleDir>lib</defaultLibBundleDir>-->
+<!--                    <archive>-->
+<!--                        <manifestEntries>-->
+<!--                            <Dependencies>deployment.service-common.jar</Dependencies>-->
+<!--                        </manifestEntries>-->
+<!--                    </archive>-->
+<!--                </configuration>-->
+            </plugin>
+        </plugins>
+    </build>
+</project> 
