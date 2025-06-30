@@ -23,8 +23,8 @@ public class LiquibaseCdiIntegration {
 
     private static final Logger logger = LoggerFactory.getLogger(LiquibaseCdiIntegration.class);
 
-//    @Resource(mappedName = "java:/iocc/mrs/jdbc/MRSDS")
-//    protected DataSource ds;
+    @Resource(mappedName = "java:jboss/datasources/ExampleDS")
+    protected DataSource ds;
 
     @PostConstruct
     public void init() {
@@ -43,7 +43,7 @@ public class LiquibaseCdiIntegration {
     public CDILiquibaseConfig createConfig() {
         logger.info("Creating Liquibase config");
         CDILiquibaseConfig config = new CDILiquibaseConfig();
-        config.setChangeLog("database/liquibase/mrs2.xml");
+        config.setChangeLog("db.xml");
         logger.info("Liquibase changelog set to: {}", config.getChangeLog());
         return config;
     }
@@ -51,7 +51,7 @@ public class LiquibaseCdiIntegration {
     @Produces
     @LiquibaseType
     public DataSource createDataSource() throws SQLException {
-        return null;
+        return ds;
     }
 
     @Produces
